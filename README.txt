@@ -1,1 +1,1 @@
-Jin-Du Wang's Personal Homepage
+This is Jindu Wang's Home Page!
