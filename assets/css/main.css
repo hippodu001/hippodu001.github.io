@@ -3783,3 +3783,40 @@ input, select, textarea {
 			}
 
 		}
+
+.publications-container {  
+    display: flex;  
+    flex-direction: column;  
+    gap: 20px; /* Adjust gap between publications */  
+}  
+  
+.publication-entry {  
+    display: flex;  
+    align-items: center;  
+    border: 1px solid #ddd;  
+    padding: 10px;  
+    max-width: 800px; /* Limit the width of the publication entry */  
+    margin: 0 auto; /* Center the publication entry */  
+}  
+  
+.thumbnail {  
+    flex-basis: 150px; /* Set the width of the thumbnail */  
+    flex-shrink: 0; /* Prevent thumbnail from shrinking */  
+    margin-right: 20px; /* Add some space between thumbnail and info */  
+}  
+  
+.thumbnail img {  
+    width: 100%;  
+    height: auto;  
+    display: block; /* Remove any bottom margin/padding */  
+}  
+  
+.info {  
+    flex-grow: 1; /* Let the info section take the remaining space */  
+}  
+  
+.clearfix::after {  
+    content: "";  
+    display: table;  
+    clear: both;  
+}  
