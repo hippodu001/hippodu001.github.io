@@ -18,29 +18,33 @@
         display: inline-block; /* 使图片并排显示 */
         margin: 0 5px; /* 设置图片间的间隔 */
     }
-  #news.main.special,
-    #pub.main.special,
-    #Services.main.special {
+  #news.main.special .content,
+    #pub.main.special .content,
+    #Services.main.special .content {
         text-align: left;
+        padding: 0 3em;  /* 添加左右内边距 */
     }
 
+    /* 保持标题居中 */
     #news .major,
     #pub .major,
     #Services .major {
-        text-align: left;
+        text-align: center;
     }
 
     .news-list,
     .publications-list {
         text-align: left;
-        padding-left: 0;
+        padding-left: 3em;  /* 添加左内边距 */
+        padding-right: 3em;  /* 添加右内边距 */
+        max-width: 100%;    /* 确保不会超出容器 */
     }
 
     .publication-entry,
     .news-list li {
         text-align: left;
         margin-bottom: 1em;
-    }
+        line-height: 1.5;  /* 改善行间距 */
 </style>
 
 	</head>
@@ -82,23 +86,27 @@
 											<h2>Welcome to my HCI world!</h2>
 										</header>
 										<p>I am Jindu Wang (王锦都), currently an M.Phil. student in (<a href="http://vis.cse.ust.hk/index.html"><strong>HKUST VisLab</strong></a>), at the Department of Computer Science and 
-                                            Engineering of the Hong Kong University of Science and Technology (HKUST), supervised by <a href="http://huamin.org/"><strong>Prof. Huamin Qu<strong> </a>. 
+                                            Engineering of the Hong Kong University of Science and Technology (HKUST), supervised by <a href="http://huamin.org/"><strong>Prof. Huamin Qu</sstrong></a>. 
                                             Before joining HKUST, I obtained my B.S. degree in Software Engineering from Xi’an Jiaotong University.
                         
 										Feel free to contact me! I'm always ready to make new friends and collaborate with you!<br />
 										
-											 <br />
-										My primary research focus is on human-computer interaction, particularly at the intersection of wearable computing, cognitive science, and AI. 
-										I aim to leverage the rich <strong>multimodal contextual information<strong> obtained from <strong>wearable devices<strong>, such as <strong>AR/VR technologies<strong>, 
-											in conjunction with the capabilities of <strong>LLMs<strong> to <strong>understand user intentions and needs<strong> in 
-											specific scenarios. By integrating theories from <strong>cognitive science<strong>, I seek to design and develop <strong>context-aware, 
-											seamless multimodal interactions and applications<strong> that enhance the quality of life and well-being for users, which follows two connected research questions:
-										, which follows two connected threads: <br />
-										1)<strong>Understanding<strong>: How to utilize multimodal contextual information and user profiles to understand users' states, intentions, and needs at specific moments and in particular contexts? <br />
-										2)<strong>Execution<strong>: How to design natural and seamless multimodal interactions, interfaces, and applications based on in-context understanding to provide proactive and/or user-initiated assistance? <br />
-									
+										<br />
+											My primary research focus is on human-computer interaction, particularly at the intersection of wearable computing, cognitive science, and AI. 
 											
-						                                 	<br />
+											I aim to leverage the rich <strong>multimodal contextual information</strong> obtained from <strong>wearable devices</strong>, such as <strong>AR/VR technologies</strong>, 
+											in conjunction with the capabilities of <strong>LLMs</strong> to <strong>understand user intentions and needs</strong> in specific scenarios. 
+											By integrating theories from <strong>cognitive science</strong>, I seek to design and develop <strong>context-aware, seamless multimodal interactions and applications</strong> that enhance the quality of life and well-being for users, which follows two connected threads: 
+											
+											<br />
+											
+											1) <strong>Understanding</strong>: How to utilize multimodal contextual information and user profiles to understand users' states, intentions, and needs at specific moments and in particular contexts? 
+											
+											<br />
+											
+											2) <strong>Execution</strong>: How to design natural and seamless multimodal interactions, interfaces, and applications based on in-context understanding to provide proactive and/or user-initiated assistance? 
+											
+											<br />
 										I was a research intern in (<a href="https://hcil.kaist.ac.kr/about/">KAIST HCI Lab</a>) advised by <a href="https://cs.kaist.ac.kr/people/view?idx=372&kind=faculty&menu=172">Prof. Geehyuk Lee </a>.
 										Previously, I interned at the Institute of Software, Chinese Academy of Sciences (<a href="http://www.is.cas.cn/">ISCAS</a>) and  <a href="https://research.lenovo.com/webapp/view_English/index.html">Lenovo Research</a> , under 
 										the supervision  of <a href="https://people.ucas.ac.cn/~0062641">Prof. Teng Han </a> and <a href="http://nianlongl.com/">Dr. Nianlong Li</a>, respectively. 
@@ -155,12 +163,12 @@
         <li class="publication-entry">  
             <strong>1. 2023 ACM SUI:</strong>   
             <a href="https://dl.acm.org/doi/10.1145/3607822.3614519" target="_blank">Swarm Manipulation in Virtual Reality</a> -   
-            Xiang Li, Jin-Du Wang, John J. Dudley, Per Ola Kristensson  
+            Xiang Li, <strong>Jin-Du Wang</strong>, John J. Dudley, Per Ola Kristensson  
         </li>  
 	 <li class="publication-entry">  
             <strong>2. 2024 Computers & Graphics:</strong>   
             Swarm manipulation: An efficient and accurate technique for multi-object manipulation in virtual reality
-            Xiang Li, Jin-Du Wang, John J. Dudley, Per Ola Kristensson  
+            Xiang Li, <strong>Jin-Du Wang</strong>, John J. Dudley, Per Ola Kristensson  
         </li>  
         <!-- Add more publication entries here -->      
         <!-- Add more entries as needed, just increment the number and update the details -->  
@@ -215,7 +223,7 @@
         <!-- Publication Entry -->  
         <li class="publication-entry">  
             <strong>Reviewer:</strong>   
-           CHIPLAY2024( Work-In-Progress ), ISS2024
+           CHI2025-LBW, IMX2025-Technical Paper, CHIPLAY2024-Work in Progress(<Strong>Special Recognition</Strong>), ISS2024-Full Paper
         </li>  
         <!-- Add more publication entries here -->      
         <!-- Add more entries as needed, just increment the number and update the details -->  
