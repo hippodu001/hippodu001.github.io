@@ -11,319 +11,564 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	<style>
-    .image-container img {
-        max-width: 50%; /* 限制图片的最大宽度为容器的50% */
-        height: auto; /* 保持图片的原始宽高比 */
-        display: inline-block; /* 使图片并排显示 */
-        margin: 0 5px; /* 设置图片间的间隔 */
-    }
-  #news.main.special .content,
-    #pub.main.special .content,
-    #Services.main.special .content {
-        text-align: left;
-        padding: 0 3em;  /* 添加左右内边距 */
-    }
+		<style>
+			/* Enhanced Typography and Spacing */
+			body {
+				font-size: 17px; /* 增大字号 */
+				line-height: 1.8; /* 增加行高 */
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			}
 
-    /* 保持标题居中 */
-    #news .major,
-    #pub .major,
-    #Services .major {
-        text-align: center;
-    }
+			h1, h2, h3, h4, h5, h6 {
+				font-weight: 600;
+				margin-bottom: 1rem;
+			}
 
-    .news-list,
-    .publications-list {
-        text-align: left;
-        padding-left: 3em;  /* 添加左内边距 */
-        padding-right: 3em;  /* 添加右内边距 */
-        max-width: 100%;    /* 确保不会超出容器 */
-    }
+			h1 { font-size: 2.5rem; }
+			h2 { font-size: 2rem; }
+			h3 { font-size: 1.5rem; }
 
-    .publication-entry,
-    .news-list li {
-        text-align: left;
-        margin-bottom: 1em;
-        line-height: 1.5;  /* 改善行间距 */
-</style>
+			p {
+				margin-bottom: 1.2rem;
+				text-align: justify;
+			}
 
+			.main {
+				padding: 4rem 0;
+			}
+
+			/* Image container improvements */
+			.image-container {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 15px;
+				justify-content: center;
+				margin: 20px 0;
+			}
+
+			.image-container img {
+				max-width: 45%;
+				height: auto;
+				border-radius: 8px;
+				box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+				transition: transform 0.3s ease;
+			}
+
+			.image-container img:hover {
+				transform: scale(1.05);
+			}
+
+			/* Section content alignment */
+			#news.main.special .content,
+			#pub.main.special .content,
+			#Services.main.special .content {
+				text-align: left;
+				padding: 0 2rem;
+				max-width: 1000px;
+				margin: 0 auto;
+			}
+
+			/* Keep headers centered */
+			#news .major,
+			#pub .major,
+			#Services .major {
+				text-align: center;
+				margin-bottom: 3rem;
+			}
+
+			/* News section styling */
+			.news-list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.news-list li {
+				background: #f8f9fa;
+				margin-bottom: 15px;
+				padding: 20px;
+				border-radius: 10px;
+				border-left: 4px solid #888;
+				transition: all 0.3s ease;
+			}
+
+			.news-list li:hover {
+				background: #efefef;
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+			}
+
+			.news-list .date {
+				font-weight: bold;
+				color: #666;
+				margin-right: 10px;
+			}
+
+			/* Toggle button styling */
+			#toggle-news {
+				background: #e0e0e0;
+				color: #555;
+				border: 1px solid #ccc;
+				padding: 12px 24px;
+				border-radius: 25px;
+				cursor: pointer;
+				font-size: 14px;
+				font-weight: 500;
+				margin-top: 20px;
+				transition: all 0.3s ease;
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				text-align: center;
+			}
+
+			#toggle-news:hover {
+				background: #d0d0d0;
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+			}
+
+			/* Publications section styling */
+			.publications-list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.publication-entry {
+				display: flex;
+				background: #ffffff;
+				margin-bottom: 25px;
+				padding: 25px;
+				border-radius: 12px;
+				box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+				border: 1px solid #e0e6ed;
+				transition: all 0.3s ease;
+			}
+
+			.publication-entry:hover {
+				box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+				transform: translateY(-3px);
+			}
+
+			.publication-thumbnail {
+				flex-shrink: 0;
+				width: 120px;
+				height: 80px;
+				margin-right: 20px;
+				background: linear-gradient(135deg, #888 0%, #666 100%);
+				border-radius: 8px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				font-weight: bold;
+				font-size: 12px;
+				text-align: center;
+			}
+
+			.publication-content {
+				flex: 1;
+			}
+
+			.publication-content .pub-title {
+				font-size: 18px;
+				font-weight: 600;
+				color: #2c3e50;
+				margin-bottom: 8px;
+				line-height: 1.4;
+			}
+
+			.publication-content .pub-title a {
+				color: #555;
+				text-decoration: none;
+			}
+
+			.publication-content .pub-title a:hover {
+				text-decoration: underline;
+			}
+
+			.publication-content .pub-authors {
+				color: #666;
+				font-size: 14px;
+				margin-bottom: 5px;
+			}
+
+			.publication-content .pub-venue {
+				color: #666;
+				font-weight: 600;
+				font-size: 14px;
+			}
+
+			/* Projects section styling */
+			.project-item {
+				background: #ffffff;
+				margin-bottom: 40px;
+				padding: 30px;
+				border-radius: 15px;
+				box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+				border: 1px solid #e8e8e8;
+			}
+
+			.project-item h3 {
+				color: #2c3e50;
+				margin-bottom: 20px;
+				font-size: 20px;
+			}
+
+			.project-info p {
+				color: #555;
+				line-height: 1.8;
+			}
+
+			/* Services section */
+			.service-item {
+				background: #f8f9fa;
+				padding: 20px;
+				border-radius: 10px;
+				border-left: 4px solid #888;
+			}
+
+			.service-item strong {
+				color: #666;
+			}
+
+			/* Footer improvements */
+			#footer {
+				background: transparent; /* 移除白色背景 */
+				color: white; /* 设置文字颜色为白色 */
+				margin-top: 50px;
+				border-top: none; /* 移除顶部边框 */
+			}
+
+			#footer .spotlight .content h2 {
+				color: white; /* 设置标题颜色为白色 */
+			}
+
+			#footer section {
+				padding: 2rem 0;
+			}
+
+			#footer-intro.main {
+				padding: 3rem 0 2rem 0;
+			}
+
+			#footer .spotlight {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 2rem;
+			}
+            
+            #footer dl.alt,
+            #footer dl.alt dt,
+            #footer dl.alt dd {
+                color: white; /* 确保联系信息文字为白色 */
+            }
+
+            #footer a {
+                color: white; /* 确保页脚链接为白色 */
+            }
+
+            #footer a:hover {
+                text-decoration: underline;
+            }
+
+			/* Responsive design */
+			@media (max-width: 768px) {
+				.image-container img {
+					max-width: 100%;
+				}
+
+				.publication-entry {
+					flex-direction: column;
+				}
+
+				.publication-thumbnail {
+					width: 100%;
+					height: 60px;
+					margin-right: 0;
+					margin-bottom: 15px;
+				}
+
+				h1 { font-size: 2rem; }
+				h2 { font-size: 1.5rem; }
+				h3 { font-size: 1.2rem; }
+			}
+		</style>
 	</head>
 	
 	<body class="is-preload">
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
 
-				<!-- Header -->
-					<header id="header" class="alt">
-						<span class="logo"><img src="images/logo.svg" alt="" /></span>
-						<h1>Hello！This is Jindu Wang :D</h1>
-						<p>MPhil in Computer Science and Engineering <br />
-						 <a href="http://vis.cse.ust.hk/"> HKUST VisLab.</p>
-					</header>
+			<!-- Header -->
+			<header id="header" class="alt">
+				<span class="logo"><img src="images/logo.svg" alt="" /></span>
+				<h1>Hello! This is Jindu Wang :D</h1>
+				<p style="text-align: center;">MPhil in Computer Science and Engineering <br />
+				<a href="http://vis.cse.ust.hk/">HKUST VisLab</a></p>
+			</header>
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="#intro">Introduction</a></li>
-							<li><a href="#news">News</a></li>
-							<li><a href="#pub">Publication</a></li>
-							<!-- <li><a href="#second">Second Section</a></li> -->
-							<li><a href="#Services">Services</a></li>
-							<li><a href="#proj">Projects</a></li>
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li><a href="#intro">Introduction</a></li>
+					<li><a href="#news">News</a></li>
+					<li><a href="#pub">Publication</a></li>
+					<li><a href="#Services">Services</a></li>
+					<li><a href="#proj">Projects</a></li>
+				</ul>
+			</nav>
+
+			<!-- Main -->
+			<div id="main">
+
+				<!-- Introduction -->
+				<section id="intro" class="main">
+					<div class="spotlight">
+						<div class="content">
+							<header class="major">
+								<h2>Welcome to my HCI world!</h2>
+							</header>
+							<p>I am <strong>Jindu Wang (王锦都)</strong>, currently an M.Phil. student in <a href="http://vis.cse.ust.hk/index.html"><strong>HKUST VisLab</strong></a>, at the Department of Computer Science and Engineering of the Hong Kong University of Science and Technology (HKUST), supervised by <a href="http://huamin.org/"><strong>Prof. Huamin Qu</strong></a>. Before joining HKUST, I obtained my B.S. degree in Software Engineering from Xi'an Jiaotong University.</p>
 							
-						</ul>
-					</nav>
-
-				<!-- Main -->
-					<div id="main">
-
-						<!-- Introduction -->
-							<section id="intro" class="main">
-								<div class="spotlight">
-									<div class="content">
-										<header class="major">
-											<h2>Welcome to my HCI world!</h2>
-										</header>
-										<p>I am <strong>Jindu Wang (王锦都)</strong>, currently an M.Phil. student in (<a href="http://vis.cse.ust.hk/index.html"><strong>HKUST VisLab</strong></a>), at the Department of Computer Science and 
-                                            Engineering of the Hong Kong University of Science and Technology (HKUST), supervised by <a href="http://huamin.org/"><strong>Prof. Huamin Qu</strong></a>. 
-                                            Before joining HKUST, I obtained my B.S. degree in Software Engineering from Xi’an Jiaotong University.
+							<p style="color: red; font-weight: bold;"> I am actively seeking a PhD position for Fall 2026 admission. Feel free to <a href="mailto:jwangki@connect.ust.hk">contact me</a> if you have opportunities or would like to discuss potential collaborations!</p>
+							
+							<p>My primary research focus is on <strong>Human-Computer Interaction</strong>, particularly at the intersection of <strong>Wearable Computing, Cognitive Science and AI</strong>. I aim to <strong>understand user intentions and needs</strong> by using <strong>LLMs</strong> to interpret <strong>multimodal data</strong>, with a specific focus on the unique <strong>spatial and environmental context</strong> captured by <strong>AR/VR technologies</strong>, complemented by an ecosystem of other <strong>wearable sensors</strong>. By integrating theories from cognitive science, I seek to design and develop <strong>context-aware, seamless multimodal interactions and applications</strong> that enhance the <strong>quality of life and well-being</strong> for users, which follows two connected threads:</p>
+							
+							<p><strong>1) Understanding:</strong> How to utilize multimodal contextual information and user profiles to understand users' states, intentions, and needs at specific moments and in particular contexts?</p>
+							
+							<p><strong>2) Execution:</strong> How to design natural and seamless multimodal interactions, interfaces, and applications based on in-context understanding to provide proactive and/or user-initiated assistance?</p>
+							
+							
+							<p>I am fortunate to collaborate extensively with outstanding international researchers. I work closely with <a href="https://www.xiang-li.phd/"><strong>Xiang Li</strong> </a> and <a href="https://pokristensson.com/bio.html"><strong>Prof. Per Ola Kristensson</strong></a> from the University of Cambridge, as well as <a href="https://runzecai.com/"><strong>Runze Cai</strong></a> and <a href="https://shengdongzhao.com/"><strong>Prof. Shengdong Zhao</strong></a> from NUS/CityU Hong Kong.</p>
                         
-										Feel free to contact me! I'm always ready to make new friends and collaborate with you!<br />
-										
-										<br />
-											My primary research focus is on <strong>Human-Computer Interaction</strong>, particularly at the intersection of <strong>Wearable Computing, Cognitive Science and AI</strong>. 
-											
-											I aim to leverage the rich <strong>multimodal contextual information</strong> obtained from wearable devices, such as <strong>AR/VR technologies</strong>, 
-											in conjunction with the capabilities of <strong>LLMs</strong> to <strong>understand user intentions and needs</strong> in specific scenarios. 
-											By integrating theories from cognitive science, I seek to design and develop <strong>context-aware, seamless multimodal interactions and applications</strong> that enhance the <strong>quality of life and well-being</strong> for users, which follows two connected threads: 
-											
-											<br />
-											<br />
-											1) <strong>Understanding</strong>: How to utilize multimodal contextual information and user profiles to understand users' states, intentions, and needs at specific moments and in particular contexts? 
-											<br />
-					
-											
-											2) <strong>Execution</strong>: How to design natural and seamless multimodal interactions, interfaces, and applications based on in-context understanding to provide proactive and/or user-initiated assistance? 
-											<br />
-											<br />
-										I was a research intern in (<a href="https://hcil.kaist.ac.kr/about/">KAIST HCI Lab</a>) advised by <a href="https://cs.kaist.ac.kr/people/view?idx=372&kind=faculty&menu=172">Prof. Geehyuk Lee </a>.
-										Previously, I interned at the Institute of Software, Chinese Academy of Sciences (<a href="http://www.is.cas.cn/">ISCAS</a>) and  <a href="https://research.lenovo.com/webapp/view_English/index.html">Lenovo Research</a> , under 
-										the supervision  of <a href="https://people.ucas.ac.cn/~0062641">Prof. Teng Han </a> and <a href="http://nianlongl.com/">Dr. Nianlong Li</a>, respectively. 
-										Also, I was a research  assistant at Xi'an Jiaotong University, advised by <a href="https://gr.xjtu.edu.cn/en/web/zmcai/home">Zhongmin Cai </a>. Besides, I work closely with  <a href="https://www.xiang-li.phd/">Xiang Li </a> from the University of Cambridge.
-		
-											
-										</p>
-										<ul class="actions">
-											<li><a href="https://github.com/hippodu001/hippodu001.github.io/raw/main/author/Jindu_CV (1).pdf" class="button">My CV(2025.4)</a></li>
-											<li><a href="https://twitter.com/JinduWang" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
-						
-								<li><a href="https://www.instagram.com/hippodu01/" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
-										</ul>
-										
-									</div>
-									<span class="image"><img src="images/JinduWang1.jpg" alt="" /></span>
-								</div>
-							</section>
-					
-
-						
-							<!-- News -->  
-<section id="news" class="main special">  
-    <header class="major">  
-        <h2>News</h2>  
-    </header>  
-    <ul class="news-list">  
-	<li><span class="date">2025.4:</span> Will come to CHI2025, hiiii Yokohama!O(∩_∩)O</li> 
-	<li><span class="date">2025.1:</span> Start the collaboration on a new project with <a href="https://shengdongzhao.com/">Prof.Shengdong Zhao</a> and <a href="https://runzecai.com/">Runze Cai</a>, let's do something interesting!</li>  
-	 <li><span class="date">2024.9:</span> Submitted one ACM CHI 2025 paper, thanks to my collaborators and hope for good luck~ (Seems no good luck as a result)</li>  
-	<li><span class="date">2024.8:</span> Joined HKUST VisLab as an MPhil!</li> 
-        <div id="more-news" style="display: none;">  
-		 <li><span class="date">2023.6:</span> Joined KAIST HCI Lab as a research intern, under the supervision of Prof.Geehyuk Lee.</li>  
-        <li><span class="date">2023.6:</span> Joined KAIST HCI Lab as a research intern, under the supervision of Prof.Geehyuk Lee.</li>  
-        <li><span class="date">2023.6:</span> Submitted one ACM SUI 2023 paper, thanks to my collaborators!</li>  
-        <li><span class="date">2023.5:</span> Submitted one ACM IMWUT 2023 paper, thanks to my collaborators!</li>  
-        <li><span class="date">2022.12:</span> Started working with Xiang Li on two new projects.</li>  
-            <li><span class="date">2022.10:</span> Joined the Intelligent Interaction Lab in Xi'an Jiaotong University as a research assistant.</li>  
-            <li><span class="date">2022.9:</span> Submitted one ACM CHI 2023 paper, thanks to my collaborators!</li>  
-            <li><span class="date">2022.7:</span> Started working with Nianlong Li in Lenovo Research.</li>  
-            <li><span class="date">2022.7:</span> Joined Beijing Key Lab of Human-Computer Interaction at the Institute of Software, Chinese Academy of Sciences as a research intern, under the supervision of Prof. Teng Han.</li>  
-        </div>  
-    </ul>  
-    <button id="toggle-news" onclick="toggleNews()"> Under Construction</button>  
-</section>
+                            <p>I was a research intern in <a href="https://hcil.kaist.ac.kr/about/">KAIST HCI Lab</a> advised by <a href="https://cs.kaist.ac.kr/people/view?idx=372&kind=faculty&menu=172"><strong>Prof. Geehyuk Lee</strong></a>. Previously, I interned at the Institute of Software, Chinese Academy of Sciences (<a href="http://www.is.cas.cn/">ISCAS</a>) and <a href="https://research.lenovo.com/webapp/view_English/index.html">Lenovo Research</a>, under the supervision of <a href="https://people.ucas.ac.cn/~0062641"><strong>Prof. Teng Han</strong></a> and <a href="http://nianlongl.com/"><strong>Dr. Nianlong Li</strong></a>, respectively. Also, I was a research assistant at Xi'an Jiaotong University, advised by <a href="https://gr.xjtu.edu.cn/en/web/zmcai/home"><strong>Zhongmin Cai</strong></a>.</p>
 						
 
-						
-		<!-- publications -->  
-<section id="pub" class="main special">  
-    <header class="major">  
-        <h2>Publications</h2>  
-    </header>  
-    <ul class="publications-list">  
-        <!-- Publication Entry -->  
-        <li class="publication-entry">  
-            <strong>1. 2023 ACM SUI:</strong>   
-            <a href="https://dl.acm.org/doi/10.1145/3607822.3614519" target="_blank">Swarm Manipulation in Virtual Reality</a> -   
-            Xiang Li, <strong>Jin-Du Wang</strong>, John J. Dudley, Per Ola Kristensson  
-        </li>  
-	 <li class="publication-entry">  
-            <strong>2. 2024 Computers & Graphics:</strong>   
-            Swarm manipulation: An efficient and accurate technique for multi-object manipulation in virtual reality
-            Xiang Li, <strong>Jin-Du Wang</strong>, John J. Dudley, Per Ola Kristensson  
-        </li>  
-        <!-- Add more publication entries here -->      
-        <!-- Add more entries as needed, just increment the number and update the details -->  
-    </ul>  
-</section>
-						
-
-
-						<!-- Second Section -->
-							<!-- <section id="second" class="main special">
-								<header class="major">
-									<h2>Ipsum consequat</h2>
-									<p>Donec imperdiet consequat consequat. Suspendisse feugiat congue<br />
-									posuere. Nulla massa urna, fermentum eget quam aliquet.</p>
-								</header>
-								<ul class="statistics">
-									<li class="style1">
-										<span class="icon solid fa-code-branch"></span>
-										<strong>5,120</strong> Etiam
-									</li>
-									<li class="style2">
-										<span class="icon fa-folder-open"></span>
-										<strong>8,192</strong> Magna
-									</li>
-									<li class="style3">
-										<span class="icon solid fa-signal"></span>
-										<strong>2,048</strong> Tempus
-									</li>
-									<li class="style4">
-										<span class="icon solid fa-laptop"></span>
-										<strong>4,096</strong> Aliquam
-									</li>
-									<li class="style5">
-										<span class="icon fa-gem"></span>
-										<strong>1,024</strong> Nullam
-									</li>
-								</ul>
-								<p class="content">Nam elementum nisl et mi a commodo porttitor. Morbi sit amet nisl eu arcu faucibus hendrerit vel a risus. Nam a orci mi, elementum ac arcu sit amet, fermentum pellentesque et purus. Integer maximus varius lorem, sed convallis diam accumsan sed. Etiam porttitor placerat sapien, sed eleifend a enim pulvinar faucibus semper quis ut arcu. Ut non nisl a mollis est efficitur vestibulum. Integer eget purus nec nulla mattis et accumsan ut magna libero. Morbi auctor iaculis porttitor. Sed ut magna ac risus et hendrerit scelerisque. Praesent eleifend lacus in lectus aliquam porta. Cras eu ornare dui curabitur lacinia.</p>
-								<footer class="major">
-									<ul class="actions special">
-										<li><a href="generic.html" class="button">Learn More</a></li>
-									</ul>
-								</footer>
-							</section> -->
-
-							<!-- Sevices -->  
-<section id="Services" class="main special">  
-    <header class="major">  
-        <h2>Services</h2>  
-    </header>  
-    <ul class="publications-list">  
-        <!-- Publication Entry -->  
-        <li class="publication-entry">  
-            <strong>Reviewer:</strong>   
-           CHI2025-LBW, IMX2025-Technical Paper, CHIPLAY2024-Work in Progress(<Strong>Special Recognition</Strong>), ISS2024-Full Paper
-        </li>  
-        <!-- Add more publication entries here -->      
-        <!-- Add more entries as needed, just increment the number and update the details -->  
-    </ul>  
-</section>
-
-					<!-- Projects -->
-<section id="proj" class="main special">
-    <header class="major">
-        <h2>Projects (Selected)</h2>
-    </header>
-    <div class="project-item">
-        <h3><strong>Dual-Stick: Dual Sticks Controller for Enhancing Raycasting Interactions with Virtual Objects</strong></h3>
-        <div class="image-container">
-            <img src="images/Dual1.png" alt="Project 1 Image 1">
-            <img src="images/Dual2.png" alt="Project 1 Image 2">
-            <!-- 可以继续添加项目1的其他图片 -->
-        </div>
-        <div class="project-info">
-            <p>
-                - This work presents Dual-Stick, a novel controller with two sticks connected at the end that provides extra input dimensions,
-                like dual rays, to enrich the raycasting input method in VR. Based on the design space analysis of daily stick-shaped tools, we
-                designed a Dual-Stick prototype consisting of 3D printed dual sticks, springs, and reflective balls for tracking. Two user studies
-                were conducted to evaluate the performance of Dual-Stick in target selection and manipulation tasks. The device also provides
-                novel interaction opportunities for VR applications. Results showed that it can effectively improve target selection efficiency,
-                especially for small targets, and enable flexible and coordinated manipulation operations through the mode switch mechanism.
-                This work highlights the potential for the new structure of controller in VR that exploits users’ ability to manipulate daily
-                tools.
-                <!-- 可以继续添加项目1的相关信息 -->
-            </p>
-        </div>
-    </div>
-    <div class="project-item">
-        <h3><strong>Swarm Manipulation in Virtual Reality</strong></h3>
-        <div class="image-container">
-            <img src="images/Swarm1.png" alt="Project 2 Image 1">
-            <img src="images/Swarm2.png" alt="Project 2 Image 2">
-           
-</section>
-
-
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<!-- <section>
-							<h2>Thanks for visiting </h2>
-							<span class="image"><img src="images/JinduWang.jpg" alt="" /></span>
-							<p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.</p>
 							<ul class="actions">
-								<li><a href="generic.html" class="button">Learn More</a></li>
-							</ul>
-						</section> -->
-						<section id="intro" class="main">
-							<div class="spotlight">
-								<div class="content">
-									<h2>Thanks For Visiting </h2>
-									<!-- <p>Sed lorem ipsum dolor sit amet et nullam consequat feugiat consequat magna adipiscing tempus etiam dolore veroeros. eget dapibus mauris. Cras aliquet, nisl ut viverra sollicitudin, ligula erat egestas velit, vitae tincidunt odio.</p>
-									<ul class="actions">
-									<li><a href="generic.html" class="button">Learn More</a></li>
-									</ul> -->
-									
-								</div>
-								<span class="image"><img src="images/Hololens.jpg" alt="" /></span>
-							</div>
-						</section>
-						<section>
-							<h2>Welcome to Chat with Me</h2>
-							<dl class="alt">
-								<dt>Address</dt>
-								<dd>Xi'an, Shaanxi, China</dd>
-								<dt>Phone</dt>
-								<dd>(+86) 13201851252</dd>
-								<dt>Email</dt>
-								<dd><a href="#">JinduWang@hotmail.com</a></dd>
-							</dl>
-							<ul class="icons">
+								<li><a href="https://github.com/hippodu001/hippodu001.github.io/raw/main/author/Jindu_CV (1).pdf" class="button">My CV (2025.4)</a></li>
 								<li><a href="https://twitter.com/JinduWang" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
-						
 								<li><a href="https://www.instagram.com/hippodu01/" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
-								
-								
 							</ul>
-						</section>
-						<p class="copyright">&copy; JinduWang. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-					</footer>
+						</div>
+						<span class="image"><img src="images/JinduWang1.jpg" alt="" /></span>
+					</div>
+				</section>
+
+				<!-- News -->  
+				<section id="news" class="main special">  
+					<header class="major">  
+						<h2>News</h2>  
+					</header>  
+					<div class="content">
+						<ul class="news-list">  
+							<li><span class="date">2025.7:</span> One 1st author paper conditionally accepted by ISMAR (TVCG track) and one co-author paper accepted ACM UIST!!! Korea see you again~</li>
+							<li><span class="date">2025.4:</span> Will come to CHI2025, hiiii Yokohama! O(∩_∩)O</li> 
+							<li><span class="date">2025.1:</span> Start the collaboration on a new project with <a href="https://shengdongzhao.com/">Prof. Shengdong Zhao</a> and <a href="https://runzecai.com/">Runze Cai</a>, let's do something interesting!</li>  
+							<li><span class="date">2024.9:</span> Submitted one ACM CHI 2025 paper, thanks to my collaborators and hope for good luck~ (Seems no good luck as a result)</li>  
+							<li><span class="date">2024.8:</span> Joined HKUST VisLab as an MPhil!</li>
+							
+							<div id="more-news" style="display: none;">  
+								<li><span class="date">2023.6:</span> Joined KAIST HCI Lab as a research intern, under the supervision of Prof. Geehyuk Lee.</li>
+								<li><span class="date">2023.6:</span> Submitted one ACM SUI 2023 paper, thanks to my collaborators!</li>  
+								<li><span class="date">2023.3:</span> I am attending IEEE VR'23 in Shanghai!! My first conference experience.</li>  
+								<li><span class="date">2022.12:</span> Started working with Xiang Li on two new projects.</li>  
+								<li><span class="date">2022.10:</span> Joined the Intelligent Interaction Lab in Xi'an Jiaotong University as a research assistant.</li>  
+								<li><span class="date">2022.9:</span> Participated in my first ACM CHI 2023 paper, thanks to my mentors!</li>   
+								<li><span class="date">2022.7:</span> Joined the Institute of Software, Chinese Academy of Sciences and Lenovo Research as a research intern, under the supervision of Prof. Teng Han and Dr. Nianlong Li.</li>  
+							</div>  
+						</ul>  
+						<button id="toggle-news" onclick="toggleNews()">Show More</button>
+					</div>
+				</section>
+
+				<!-- Publications -->  
+				<section id="pub" class="main special">  
+					<header class="major">  
+						<h2>Publications</h2>  
+					</header>  
+						<div class="content">
+						<ul class="publications-list">  
+							<li class="publication-entry">
+								<div class="publication-thumbnail">
+									ISMAR 2025
+								</div>
+								<div class="publication-content">
+									<div class="pub-title">
+										Handows: A Palm-Based Interactive Multi-Window Management System in Virtual Reality
+									</div>
+									<div class="pub-authors">
+										<strong>Jin-Du Wang</strong>, Ke Zhou, Haoyu Ren, Per Ola Kristensson, Xiang Li
+									</div>
+									<div class="pub-venue">
+										IEEE Transactions on Visualization and Computer Graphics (Special Issue of IEEE ISMAR 2025, To Appear)
+									</div>
+								</div>
+							</li>
+							
+							<li class="publication-entry">
+								<div class="publication-thumbnail">
+									UIST 2025
+								</div>
+								<div class="publication-content">
+									<div class="pub-title">
+										NeuroSync: Intent-Aware Code-Based Problem Solving via Direct LLM Understanding Modification
+									</div>
+									<div class="pub-authors">
+										Wenshuo Zhang, Leixian Shen, Shuchang Xu, <strong>Jin-Du Wang</strong>, Jian Zhao, Huamin Qu, Linping Yuan
+									</div>
+									<div class="pub-venue">
+										ACM Symposium on User Interface Software and Technology (UIST) 2025
+									</div>
+								</div>
+							</li>
+							
+							<li class="publication-entry">
+								<div class="publication-thumbnail">
+									SUI 2023
+								</div>
+								<div class="publication-content">
+									<div class="pub-title">
+										<a href="https://dl.acm.org/doi/10.1145/3607822.3614519" target="_blank">Swarm Manipulation in Virtual Reality</a>
+									</div>
+									<div class="pub-authors">
+										Xiang Li, <strong>Jin-Du Wang</strong>, John J. Dudley, Per Ola Kristensson
+									</div>
+									<div class="pub-venue">
+										ACM Symposium on Spatial User Interaction (SUI) 2023
+									</div>
+								</div>
+							</li>  
+							
+							<li class="publication-entry">
+								<div class="publication-thumbnail">
+									C&G 2024
+								</div>
+								<div class="publication-content">
+									<div class="pub-title">
+										<a href="https://www.sciencedirect.com/science/article/pii/S0097849324002486" target="_blank">Exploring Swarm Manipulation in Virtual Reality</a>
+									</div>
+									<div class="pub-authors">
+										Xiang Li, <strong>Jin-Du Wang</strong>, John J. Dudley, Per Ola Kristensson
+									</div>
+									<div class="pub-venue">
+										Computers & Graphics 2024
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</section>
+
+				<!-- Services -->  
+				<section id="Services" class="main special">  
+					<header class="major">  
+						<h2>Services</h2>  
+					</header>  
+					<div class="content">
+						<div class="service-item">
+							<strong>Reviewer:</strong> CHI2025-LBW, IMX2025-Technical Paper, CHIPLAY2024-Work in Progress (<strong>Special Recognition</strong>), ISS2024-Full Paper
+						</div>
+					</div>
+				</section>
+
+				<!-- Projects -->
+				<section id="proj" class="main special">
+					<header class="major">
+						<h2>Projects (Selected)</h2>
+					</header>
+					<div class="content">
+						<div class="project-item">
+							<h3><strong>Capillary Network: Exploring Interspecies Kinship through Real Data and Biological Inspired Algorithm</strong></h3>
+							<div class="image-container">
+								<img src="images/Dual1.png" alt="Dual-Stick Project Image 1">
+								<img src="images/Dual2.png" alt="Dual-Stick Project Image 2">
+							</div>
+							<div class="project-info">
+								<p>Capillary Network is a data-driven interactive experience that speculatively visualizes the invisible diffusion of poisonous substances across species. Tracing how pesticides permeate various organisms, including wildlife, beneficial invertebrates, companion animals, and humans, it reveals a haunting yet beautiful kinship among them.  Viewers are invited to be part of the system, where toxins circulate like blood, prompting reflection on life, death, and human–nonhuman entanglement.</p>
+							</div>
+						</div>
+						<div class="project-item">
+							<h3><strong>Dual-Stick: Dual Sticks Controller for Enhancing Raycasting Interactions with Virtual Objects</strong></h3>
+							<div class="image-container">
+								<img src="images/Dual1.png" alt="Dual-Stick Project Image 1">
+								<img src="images/Dual2.png" alt="Dual-Stick Project Image 2">
+							</div>
+							<div class="project-info">
+								<p>This work presents Dual-Stick, a novel controller with two sticks connected at the end that provides extra input dimensions, like dual rays, to enrich the raycasting input method in VR. Based on the design space analysis of daily stick-shaped tools, we designed a Dual-Stick prototype consisting of 3D printed dual sticks, springs, and reflective balls for tracking. Two user studies were conducted to evaluate the performance of Dual-Stick in target selection and manipulation tasks. The device also provides novel interaction opportunities for VR applications. Results showed that it can effectively improve target selection efficiency, especially for small targets, and enable flexible and coordinated manipulation operations through the mode switch mechanism. This work highlights the potential for the new structure of controller in VR that exploits users' ability to manipulate daily tools.</p>
+							</div>
+						</div>
+						
+						<div class="project-item">
+							<h3><strong>Swarm Manipulation in Virtual Reality</strong></h3>
+							<div class="image-container">
+								<img src="images/Swarm1.png" alt="Swarm Project Image 1">
+								<img src="images/Swarm2.png" alt="Swarm Project Image 2">
+							</div>
+							<div class="project-info">
+								<p>This project explores efficient techniques for manipulating multiple objects simultaneously in virtual reality environments. The work focuses on developing intuitive interaction methods that allow users to control swarms of virtual objects with natural gestures and movements.</p>
+							</div>
+						</div>
+					</div>
+				</section>
 
 			</div>
 
+			<!-- Footer -->
+			<footer id="footer">
+				<section id="footer-intro" class="main">
+					<div class="spotlight">
+						<div class="content">
+							<h2>Thanks For Visiting</h2>
+						</div>
+						<span class="image"><img src="images/Hololens.jpg" alt="" /></span>
+					</div>
+				</section>
+				<section>
+					<h2>Welcome to Chat with Me</h2>
+					<dl class="alt">
+						<dt>Address</dt>
+						<dd>Hong Kong SAR, China</dd>
+						<dt>Phone</dt>
+						<dd>(+852) 95760316</dd>
+						<dt>Email</dt>
+						<dd><a href="mailto:jwangki@connect.ust.hk">jwangki@connect.ust.hk</a></dd>
+					</dl>
+					<ul class="icons">
+						<li><a href="https://twitter.com/JinduWang" class="icon brands fa-twitter alt"><span class="label">Twitter</span></a></li>
+						<li><a href="https://www.instagram.com/hippodu01/" class="icon brands fa-instagram alt"><span class="label">Instagram</span></a></li>
+					</ul>
+				</section>
+				<p class="copyright">&copy; JinduWang. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+			</footer>
+
+		</div>
+
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+		<script>
+			function toggleNews() {
+				const moreNews = document.getElementById('more-news');
+				const toggleButton = document.getElementById('toggle-news');
+				
+				if (moreNews.style.display === 'none') {
+					moreNews.style.display = 'block';
+					toggleButton.textContent = 'Show Less';
+				} else {
+					moreNews.style.display = 'none';
+					toggleButton.textContent = 'Show More';
+				}
+			}
+		</script>
 
 	</body>
 </html>
